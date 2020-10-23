@@ -1,0 +1,32 @@
+public class waterBottle {
+	private boolean isFull;
+	private int temp;
+	private double waterLevel;
+	private String location;	
+	
+	 public waterBottle(boolean fullStatus, int getTemp, double getWaterLvl, String getLoc) {
+		isFull = fullStatus;
+		temp = getTemp;
+		waterLevel = getWaterLvl;
+		location = getLoc;
+	 }
+	
+	public boolean getFull() {
+		return isFull;
+		
+	}
+	
+	public int Temperature() {
+		return temp;
+		
+	}
+	
+	public double waterLvl() {
+		return waterLevel;
+	}
+	
+	public String loc() {
+		return location;
+	}
+
+		}
