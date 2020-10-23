@@ -1,0 +1,62 @@
+public class Fraction {
+	private int numerator;
+    private int denominator;
+ 
+    //constructor....parameters for num and den
+    
+    public Fraction(int num, int den) {
+	numerator = num;
+	denominator = den;
+    }
+ 
+    public int getNum() {
+	return numerator;
+    }
+ 
+    public int getDen() {
+	return denominator;
+    }
+ 
+    //adding adding adding
+    
+    public Fraction add(Fraction fractionTwo) {
+	int n = (numerator * fractionTwo.getDen()) + (fractionTwo.getNum() * denominator);
+	int d = denominator * fractionTwo.getDen();
+	Fraction result = new Fraction(n, d);
+	return result;
+    }
+ 
+   //subtraction
+    
+    public Fraction subtract(Fraction fractionTwo) {
+    int n = (numerator * fractionTwo.denominator) - (fractionTwo.numerator * denominator);
+	int d = denominator * fractionTwo.denominator;
+	Fraction result = new Fraction(n, d);
+	return result;
+    }
+ 
+  //multiplication x x
+    
+    public Fraction multiply(Fraction fractionTwo) {
+	int n = numerator * fractionTwo.numerator;
+	int d = denominator * fractionTwo.denominator;
+	Fraction result = new Fraction(n, d);
+	return result;
+    }
+ 
+ //divided we fall (and also get the correct answer)
+    
+    
+    public Fraction divide(Fraction fractionTwo) {
+	int n = numerator * fractionTwo.getDen();
+	int d = denominator * fractionTwo.numerator;
+	Fraction result = new Fraction(n, d);
+	return result;
+    }
+    
+//woe! string be upon ye!
+    
+    public String toString() {
+    	return this.numerator + "/" + this.denominator;
+    	
+    }
