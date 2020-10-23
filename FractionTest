@@ -1,9 +1,9 @@
 public class FractionTest {
 public static void main (String[] args) { 
 	Fraction f1 = new Fraction(8, 24);
-	System.out.println("Your first fraction is: " + f1.toString());
+	System.out.println("Your first fraction is: " + f1);
 	Fraction f2 = new Fraction(2, 6);
-	System.out.println("Your second string is: " + f2.toString());
+	System.out.println("Your second fraction is: " + f2);
 	
 	Fraction f3 = f1.add(f2);
 	System.out.println("Your sum is: \n " 
