@@ -1,0 +1,8 @@
+public class WaterBottleTest {
+    public static void main (String[] args) { 
+    	waterBottle yenwaterbottle = new waterBottle(true, 32, 23.6, "home");
+    	
+    	System.out.print("Is there water in the water bottle?" + " " + yenwaterbottle.getFull() + ". \n");
+    	System.out.print("The water in the water bottle is currently " + "" + yenwaterbottle.Temperature() + " degrees Farenheit. \n");
+    	System.out.print("The amount of water in the water bottle is currently " + "" + yenwaterbottle.waterLvl() + " mL. \n");
+    	System.out.print("The water bottle is currently at " + "" + yenwaterbottle.loc() + ". \n");
