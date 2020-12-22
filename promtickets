@@ -1,0 +1,133 @@
+import java.util.Scanner;
+
+public class promtickets {
+	
+	//default constructor ...
+	public promtickets() {}
+	
+	
+	/*
+	 * calculate ticket cost
+	 * input: class, type
+	 * output: cost 
+	 * 
+	*/
+	public static String getTicketCost(String year, String ticketType) {
+		String cost="";
+		
+		if (year.toLowerCase().equals("freshman")) {
+			if (ticketType.toLowerCase().equals("solo")) {
+				cost = "65.00";
+			}
+			if (ticketType.toLowerCase().equals("couple")) {
+				cost = "98.00";
+			}
+			if (ticketType.toLowerCase().equals("group")) {
+				cost = "163.00";
+			}
+		}
+		
+		if (year.toLowerCase().equals("sophomore")) {
+			if (ticketType.toLowerCase().equals("solo")) {
+				cost = "55.00";
+			}
+			if (ticketType.toLowerCase().equals("couple")) {
+				cost = "83.00";
+			}
+			if (ticketType.toLowerCase().equals("group")) {
+				cost = "138.00";
+			}
+		}
+		
+		if (year.toLowerCase().equals("junior")) {
+			if (ticketType.toLowerCase().equals("solo")) {
+				cost = "45.00";
+			}
+			if (ticketType.toLowerCase().equals("couple")) {
+				cost = "68.00";
+			}
+			if (ticketType.toLowerCase().equals("group")) {
+				cost = "113.00";
+			}
+		}
+		
+		if (year.toLowerCase().equals("senior")) {
+				System.out.println("1");
+			if (ticketType.toLowerCase().equals("solo")) {
+				cost = "40.00";
+			}
+			if (ticketType.toLowerCase().equals("couple")) {
+				cost = "60.00";
+			}
+			if (ticketType.toLowerCase().equals("group")) {
+				cost = "100.00";
+				}
+			}
+		
+		return cost;
+	}
+	
+	
+	
+	/*
+	 * product confirmation code 
+	 * output: 6 characters confirmation code
+	 */
+	public static String genConfirmationCode() {
+		int count = 0;
+		int random = 0;
+		String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+		String code = "";
+		
+		while(count<6) {
+			random = (int) (Math.random()*characters.length());
+			code += characters.substring(random, random+1);
+			count ++;
+		}
+		
+	    return code; 
+	}
+	
+	
+	
+	// start ...
+	public static void main(String[] args) {
+		
+		// ask name, class , ticket_type ...
+		
+		String code = "";
+		String cost = "";
+		String name = "";
+		String year = "";
+		String ticketType = "";
+			
+		Scanner getName = new Scanner (System.in);
+		System.out.println("Enter your first and last name.");
+		name = getName.nextLine();
+		
+		Scanner getYear = new Scanner (System.in);
+		System.out.println("Are you a freshman, sophomore, junior, or senior?");
+		year = getYear.nextLine();
+		
+		Scanner getType = new Scanner (System.in);
+		System.out.println("What type of ticket would you like to purchase? Please specify solo, couple, or group.");
+		ticketType = getType.nextLine();
+	
+		
+		cost = getTicketCost(year, ticketType);
+		code = genConfirmationCode();
+		
+
+		// print out ....
+		System.out.println(name + " purchased a " + year + " " + ticketType + " ticket for $" + cost + ". The confirmation number for this sale is " + code + ". ");
+	
+	}
+	
+	
+	
+	
+	
+	
+}
+
+
