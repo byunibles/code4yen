@@ -1,0 +1,39 @@
+public class SlotMachine 
+{
+	  int spins;
+	  int total;
+
+	  public SlotMachine()
+	  {
+	        spins = 0;
+	        total = 0;    
+	  }
+	    
+	  public void spin() 
+	  {
+	      int prize = 0;
+	      
+	      int once = (int)(Math.random()*10);
+	      int twice = (int)(Math.random()*10);
+	      int thrice = (int)(Math.random()*10);
+
+	      if( (once == twice && once == thrice) ) 
+	    	  prize = 1000;
+	      else if(once == twice || once == thrice || twice == thrice) 
+	          prize = 25;
+	      else 
+	    	  prize = -15;
+
+	      spins ++;  
+	      total += prize;
+	      System.out.println( " Your numbers are: " + once + " " + twice + " " + thrice);
+	      
+	      if( prize < 0) 
+	    	  System.out.println(" Aww! You lost! " + (prize) +" dollars has been taken from your account. " );
+	      else 
+	    	  System.out.println(" Yay! You won! " + (prize) + " dollars has been added to your account! ");
+	      
+	  }
+	  
+}
+
