@@ -1,0 +1,27 @@
+public class SlotMachineGo {
+	
+	public static void main(String args[])
+	{	
+    	SlotMachine MyGame = new SlotMachine();  		
+    	Scanner me  = new Scanner(System.in);
+    	  	
+    	boolean play = true;
+    	while(play)
+    	{
+            MyGame.spin();
+            
+            System.out.println("\n Do you want to test your luck? Select YES or NO. ");             
+            String answer = me.nextLine();
+              
+            if ( answer.equals("no")) {            	
+            	
+            	play = false;
+            } 
+            else {
+            	play = true;
+            }
+        }
+    	
+        System.out.println(" You rolled a total of " + MyGame.spins + " time(s). \n Your final prize is " + MyGame.total + " dollars. \n Thank you for playing!");
+    }
+}
