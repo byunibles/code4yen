@@ -1,0 +1,135 @@
+package vendingMachineHW;
+import java.util.Scanner;
+
+public class vendingMachine {
+	
+	private static item[][] venItems = {
+			                             { new item("dried yak",1.50), new item("yak chips",1.10), new item("yak ice cream",1.50)}, 
+			                             { new item("yak jerky",1.10), new item("yak filets",1.00), new item("yak buns",0.75)},
+			                             { new item("yak crumble",0.50), new item("yak chocolates",1.75), new item("cheesy yak",0.50)},
+			                             { new item("yak flanks",0.50), new item("yak gummies",1.50), new item("yak bars",1.25)},
+			                             { new item("yak ribeyes",1.25), new item("yak gravies",1.25), new item("two whole yaks",2.00)}
+	                                   };
+	
+	
+	private static Scanner scan = new Scanner(System.in);
+	
+	
+	public vendingMachine () { //constructor
+		}
+
+	//1
+	public static void displayVenItems() {
+		//display all the vending items in the machine		
+		System.out.printf("\n%70s\n", " ~~~~~~~~ WELCOME TO YEN'S YUMMY YAK SHACK !!! ~~~~~~~~");		
+		for(int i =0 ; i<100; i++) {
+			System.out.print("=");
+		}
+		System.out.println();
+		
+		for(int i=0; i<5;i++) {
+			for(int j =0 ; j<3;j++) {
+				System.out.print("\t("+i+","+j+") ");
+				venItems[i][j].printItem();
+			}
+			System.out.println();
+		}
+		
+		for(int i =0 ; i<100; i++) {
+			System.out.print("=");
+		}
+		System.out.println("\n");		
+	}
+	
+	//2
+	public static double insertMoney() {
+		// take 5c,10c,25c, $1 bill and max $2.00
+		double amtInsert=0.0;
+		System.out.print(" insert money: ");
+		//Scanner scan = new Scanner(System.in);
+	    
+		String[] cashInput = scan.nextLine().split(" ");
+		
+		for( String str: cashInput) {
+			double coin = Double.parseDouble(str);
+			if(coin == 0.05 || coin == 0.10 || coin == 0.25 || coin ==1.0 ) {
+				amtInsert = amtInsert + coin;
+			} else {
+				System.out.printf(" we cant take this %.2f\n", coin);
+			}
+		}
+		
+		double change = 0;
+		if(amtInsert > 2.0) {
+			change = amtInsert - 2.0;
+			amtInsert = 2.0;
+			System.out.printf(" change: %.2f\n", change);
+		} 	
+	
+		//scan.close();
+		System.out.printf(" your amount entered: %.2f\n", amtInsert);
+		
+		return amtInsert;
+	}
+	
+	
+	//3
+	public static item getVendItem() {
+		// prompt for the item code which is the 2 digits in front of an item
+		// if amount <= item's price then dispense item 
+		// else prompt insufficient fund for the selected item
+		//Scanner scan  = new Scanner(System.in);
+		int i=0;
+		int j=0;
+		System.out.println("\n Select an item by entering the two-digit item code: ");
+		System.out.print(" Enter the row number: ");
+		i = scan.nextInt();
+		System.out.println(" ROW: "+ i);
+		System.out.print(" Enter the column placement: ");
+		j = scan.nextInt();
+		System.out.println(" COLUMN: "+ j);
+		
+		
+		item selectItem = venItems[i][j];
+		
+		
+		//selectItem.printItem();
+		
+		scan.close();
+		return selectItem;
+		
+		
+	}
+	
+	
+	// start ...
+	public static void main (String[] args) { 
+		// (1) display vending items - price	
+		displayVenItems();
+		
+		// (2) insert money
+		double amount = insertMoney();
+			
+		// (3) get item
+		item  urItem = getVendItem();
+		
+		// dispense the item
+		if( urItem.getPrice() <= amount) {
+			System.out.println("\n Here are your " + urItem.getName() + "!");
+			double changeAgain = amount - urItem.getPrice();
+			System.out.println("\n Your change is: " + changeAgain + ".");
+			System.out.println("\n Thank you for your purchase! Come again soon!");
+			
+		} else {
+			
+			System.out.print(" You selected : ");
+			urItem.printItem();			
+			System.out.println("\n Purchase cannot be made; insuffcient funds to purchase " + urItem.getName() + ".");
+		}
+		
+	}
+	
+}
+
+
+
