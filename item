@@ -1,0 +1,33 @@
+package vendingMachineHW;
+
+import java.text.DecimalFormat;
+
+public class item {
+	
+	private String name;
+	private double price;
+	
+	public item (String itm, double prc) { //constructor
+		name = itm;
+		price = prc;
+	}
+	
+	public double getPrice() {
+		 return price; 
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void printItem() {
+		//System.out.print(name + " - $" + price +" ");
+		DecimalFormat ft = new DecimalFormat("$0.00");
+		System.out.printf("%-25s",name+ " - " +ft.format(price) + " ");
+	}
+	
+	
+}
+
+
+
