@@ -1,0 +1,133 @@
+import java.util.Scanner;
+import java.util.Random;
+import java.util.ArrayList;
+import java.io.File;  
+import java.io.FileNotFoundException; 
+
+public class hangman {
+	
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		String keyWord="";
+		char [] result;
+		
+		System.out.println(" Do you want to start hangman? (Enter YES or NO)");
+		String answer = scanner.nextLine();
+			
+		// ... start game 
+		if (answer.toLowerCase().equals("yes")) {
+			
+		    //letter bank
+		    ArrayList<Character> lettersTried = new ArrayList<Character>();
+			
+			// pick a secret word
+			keyWord = getWord();
+						
+			
+			// for debug ....
+//			System.out.println(" secret word: " + keyWord); 
+					
+			int turn=0;		
+			result = new char[keyWord.length()];
+			for ( int e = 0 ; e < result.length ; e++) {		
+				result[e] = '_';
+			}
+			
+			// let player try try 6 times if he guess correct then he didnt lose a turn
+			for(int i = 0 ; i < 6 ; i++) {
+				
+				if(turn==1) {
+					i=i-1;
+					turn=0;
+				}
+				
+				System.out.println("\n \n Enter a character: (there are "+ (6 - i) + " try left) \n");									
+				char iGuess= scanner.next().charAt(0);						
+				if(i > 0) {		
+					if (lettersTried.contains(iGuess)){
+						i--;
+						System.out.println(" you already gessed: " + iGuess + " try another character.");
+						continue;
+					}
+				}  
+				
+				lettersTried.add(iGuess);
+				
+				for(int j = 0 ; j < keyWord.length() ; j++) {
+					if(iGuess == keyWord.charAt(j) ) {	
+						result[j] = iGuess;						
+						//reserved turn
+						turn=1;					
+					} 
+				}
+				
+			    //...	
+							
+				// print out then check if win the stop ...
+				for(int e = 0 ; e < result.length ; e++) {		
+					System.out.print(" "+result[e]);
+				}
+				System.out.println();
+				
+				
+				if( keyWord.equals(String.valueOf(result))) {
+					System.out.println(" \n\n .... WIN !!!!" + " the word is " + keyWord);	
+					break;
+					
+				} else if( i == 5 && !keyWord.equals(String.valueOf(result))) {
+					System.out.println(" lose !!!!"+ " the word is " + keyWord);							
+				}
+			}
+			
+			
+		}
+		else {
+			System.out.println(" \n\n Bye bye! ");	
+		}
+		
+		scanner.close();
+		return;
+	}
+		
+		
+		
+	// read words from text file
+	// text file has max 10 lines each line has 1 word
+	// randomly return a word from the list
+	private static String getWord() { 		
+		Random random = new Random();
+		String [] words = new String[10];   
+		int i = 0 ;                           
+		
+		 try {			 
+		      File myDataFile = new File("/Users/byunp/compsci/eclipse-workspace/studentinfo/data.txt"); 
+		      Scanner lines = new Scanner(myDataFile);
+		      
+		      while (lines.hasNextLine()) {  
+		    	  if(lines.nextLine() != null) {
+		             words[i] = lines.nextLine(); 
+		             i++;
+		    	  }
+		      }		      
+		      lines.close();		      
+		 } catch (FileNotFoundException e) {		 
+		       System.out.println("An error occurred.");
+		       e.printStackTrace(); 
+	     }
+		 
+		 int ln = words.length - 1;
+		 int idx = random.nextInt(ln); 
+					 
+		 return words[idx];		 
+	}
+
+
+    //...
+	static void printResult() {
+	  System.out.println("Enter a character.");
+			
+	}
+		
+		
+}
+//end
