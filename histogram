@@ -1,0 +1,135 @@
+public class histogram {
+	public static void main(String[] args) {
+		
+		int arrParam = (int)(Math.random()*50+50);
+		int[] arr = new int [arrParam];
+		int uno = 0;
+		int dos = 0;
+		int tres = 0;
+		int cautro = 0;
+		int cinco = 0;
+		int seis = 0;
+		int siete = 0;
+		int ocho = 0;
+		int nueve = 0;
+		int fin = 0;
+		
+		int temp = 0;
+		for (int i=0; i < arr.length; i++) {
+			temp = (int)(Math.random()*100);
+			arr[i] = temp;
+		}
+		
+	   	for (int n = 0; n < arrParam; n++) {
+			if (arr[n] > 0 && arr[n] <= 10) {
+				uno++;
+		
+			}
+		     if (arr[n] > 10 && arr[n] <= 20) {
+			     dos++;
+			
+				}
+		     
+		     if (arr[n] > 20 && arr[n] <= 30) {
+			     tres++;
+			
+				}
+		     
+		     if (arr[n] > 30 && arr[n] <= 40) {
+			     cautro++;
+			
+				}
+		     
+		     if (arr[n] > 40 && arr[n] <= 50) {
+			     cinco++;
+			
+				}
+		     
+		     if (arr[n] > 50 && arr[n] <= 60) {
+			     seis++;
+			
+				}
+		     
+		     if (arr[n] > 60 && arr[n] <= 70) {
+			     siete++;
+			
+				}
+		     
+		     if (arr[n] > 70 && arr[n] <= 80) {
+			     ocho++;
+			
+				}
+				
+		     if (arr[n] > 80 && arr[n] <=90) {
+			     nueve++;
+			
+				}
+		     
+		     if (arr[n] > 90 && arr[n] <=100) {
+			     fin++;
+			
+				}
+		
+		 System.out.print("\n \n 1 – 10: ");
+		 	for (int n1 = 0 ; n1 <= uno; n1++) {
+		 		System.out.print(" * ");
+		 	}
+		 	
+		 System.out.println(" \n ");
+		 System.out.print("11 – 20: ");
+			for (int n1 = 0 ; n1 <= dos; n1++) {
+		 		System.out.print(" * ");
+			}
+			
+		 System.out.println(" \n ");
+		 System.out.print("21 – 30: ");
+			for (int n1 = 0 ; n1 <= tres; n1++) {
+			 	System.out.print(" * ");
+			}
+				
+		 System.out.println(" \n ");
+		 System.out.print("31 – 40: ");
+				for (int n1 = 0 ; n1 <= cautro; n1++) {
+				 System.out.print(" * ");
+			}
+				  
+	     System.out.println(" \n ");
+	     System.out.print("41 – 50: ");
+				for (int n1 = 0 ; n1 <= cinco; n1++) {
+				System.out.print(" * ");			
+			}
+				
+	     System.out.println(" \n ");
+		 System.out.print("51 – 60: ");
+				for (int n1 = 0 ; n1 <= seis; n1++) {
+				System.out.print(" * ");			
+			}
+				
+         System.out.println(" \n ");
+	     System.out.print("61 – 70: ");
+			     for (int n1 = 0 ; n1 <= siete; n1++) {
+				 System.out.print(" * ");			
+			}
+			     
+		System.out.println(" \n ");
+		System.out.print("71 – 80: ");
+				for (int n1 = 0 ; n1 <= ocho; n1++) {
+				System.out.print(" * ");			
+			}
+				
+		System.out.println(" \n ");
+		System.out.print("81 – 90: ");
+			    for (int n1 = 0 ; n1 <= nueve; n1++) {
+				System.out.print(" * ");			
+			}
+		System.out.println(" \n ");
+		System.out.print("91 – 100: ");
+				for (int n1 = 0 ; n1 <= fin; n1++) {
+				System.out.print(" * ");			
+			}
+      
+		}		
+	 }
+ }
+	
+
