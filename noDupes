@@ -1,0 +1,47 @@
+import java.util.Arrays;
+
+public class noDupes {
+	public static void main(String[] args) {
+	int[] arr = new int[30];
+	int arrcovertLength = 1;
+	int n = 0;
+	System.out.println("First rendition: ");
+	
+	for(int i = 0; i < arr.length; i++) {
+		arr[i] = (int)(Math.random()*30);
+	}
+	
+	for (int i = 0; i < arr.length; i++) {
+		System.out.print(arr[i] + " ");
+		
+	}
+	
+	System.out.println(" ");
+	System.out.print("Rearranged rendition: ");
+	Arrays.sort(arr);
+	for (int i = 0; i < (arr.length - 1) ; i++) {
+		System.out.print(arr[i] + " ");
+		
+	}
+	
+for (int i = 0; i < (arr.length - 1); i++) {
+	if (arr[i+1] != arr[i]) {
+		n++;
+	}
+}
+int[] ndArr = new int[arrcovertLength];
+ndArr[ndArr.length - 1] = arr[arr.length - 1];
+System.out.println("\n Without duplicates: ");
+for (int i = 0 ; i < arrcovertLength ; i++) {
+	System.out.print(ndArr[i]);
+	
+}
+
+	
+	
+}
+ }
+	
+
+
+
